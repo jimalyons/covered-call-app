@@ -1,9 +1,7 @@
 export async function getScreener() {
-  const res = await fetch("http://localhost:3001/api/screener?symbols=AAPL,MSFT,TSLA");
-  return res.json();
+  return fetch("/api/screener?symbols=AAPL,MSFT,TSLA").then(r => r.json());
 }
 
 export async function getBacktest(symbol, cadence = "monthly") {
-  const res = await fetch(`http://localhost:3001/api/backtest?symbol=${symbol}&cadence=${cadence}`);
-  return res.json();
+  return fetch(`/api/backtest?symbol=${symbol}&cadence=${cadence}`).then(r => r.json());
 }
